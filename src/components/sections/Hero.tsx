@@ -136,7 +136,7 @@ export function Hero() {
             </div>
 
             {/* Corner Sticker Delight */}
-            <div className="absolute -bottom-3 -right-2 hidden sm:flex items-center gap-1 font-hand text-base text-accent -rotate-3 select-none bg-surface/90 border border-border/80 px-2 py-0.5 rounded-md shadow-md backdrop-blur-sm">
+            <div className="absolute -bottom-3 -right-2 flex items-center gap-1 font-hand text-base text-accent -rotate-3 select-none bg-surface/90 border border-border/80 px-2 py-0.5 rounded-md shadow-md backdrop-blur-sm">
               <span>that's me</span>
             </div>
           </div>
