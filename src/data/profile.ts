@@ -19,7 +19,8 @@ export const profileData: Profile = {
   availabilityStatusText: 'open to engineering roles & projects',
   email: 'franciscidneyawuor@gmail.com',
   phone: '+254702672470',
-  resumeUrl: '/Francis_Awuor_CV.pdf',
+  resumeUrl:
+    'https://docs.google.com/document/d/1rwN2gb1-dIwIARCk1Apn_Do0V6eycl-gVwnS4t3k0AI/edit?usp=sharing',
   socialLinks: [
     {
       platform: 'github',

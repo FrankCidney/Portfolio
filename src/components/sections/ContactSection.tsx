@@ -73,7 +73,7 @@ export function ContactSection() {
               rel="noopener noreferrer"
               className="link-draw inline-flex items-center gap-1 font-mono text-xs text-muted hover:text-foreground transition-colors self-center sm:self-auto ml-1"
             >
-              <span>Download CV</span>
+              <span>View Resume</span>
               <ArrowUpRight className="size-3.5 text-faint" />
             </a>
           </div>
