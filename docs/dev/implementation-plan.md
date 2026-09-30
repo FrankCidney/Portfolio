@@ -137,23 +137,23 @@ portfolio/
 ### Phase 2: Type Definitions & Content Modeling
 *Goal: Populate all structured data models from the verified context documents.*
 
-- [ ] **Step 2.1: TypeScript Domain Types (`src/types/index.ts`)**
+- [x] **Step 2.1: TypeScript Domain Types (`src/types/index.ts`)**
   * Define interfaces: `Project`, `ProjectCategory ('personal' | 'internal')`, `Article`, `Hobby`, `SocialLink`.
-- [ ] **Step 2.2: Profile Data (`src/data/profile.ts`)**
+- [x] **Step 2.2: Profile Data (`src/data/profile.ts`)**
   * Name: Francis Cidney Awuor Otieno (Frank Cidney).
   * Headline: "Full-Stack Software Engineer building resilient distributed systems, data pipelines, and real-time architectures."
   * Location: "Kisumu / Nairobi, Kenya · East Africa Time (UTC+3)".
   * Availability: "Open to full-time engineering roles & high-impact contracts".
   * Social Links: LinkedIn, GitHub, Dev.to, X.
   * Direct email & resume paths.
-- [ ] **Step 2.3: Project Data Matrix (`src/data/projects.ts`)**
+- [x] **Step 2.3: Project Data Matrix (`src/data/projects.ts`)**
   * Populate all 5 projects with full Problem, Role/Solution, Outcome metrics, and Case Study narratives:
     1. **Opportunity Radar:** Self-hosted Go job automation service, PostgreSQL explicit SQL, 24h scheduler, Resend digest.
     2. **Social Network:** Full-stack Go WebSocket server, goroutine hub, Next.js App Router, relational privacy models.
     3. **Guidely:** Enterprise RAG Q&A Assistant, FAISS vector index, Gemini 3.6 Flash, SHA-256 two-tier caching, 3.18s median latency.
     4. **Project Reki:** Tech Lead: Graph-powered labor market platform, Python tech inclusion filters (PR #120), Next.js 16 discovery UI (PR #135), Neo4j Cypher.
     5. **Micro-Influencer App (MIA):** Core Backend: Go 1.24 / Fiber v3, AWS KMS envelope encryption, Asynq 5-queue priority worker, breach monitoring DFA.
-- [ ] **Step 2.4: Writing & Hobbies Data (`src/data/articles.ts`, `src/data/hobbies.ts`)**
+- [x] **Step 2.4: Writing & Hobbies Data (`src/data/articles.ts`, `src/data/hobbies.ts`)**
   * Technical articles on Dev.to (Go concurrency, RAG caching, envelope encryption).
   * 3–4 intentional hobbies highlighting problem-solving, discipline, and systems thinking (e.g. Open-source tooling, competitive chess/strategy, endurance running).
 
