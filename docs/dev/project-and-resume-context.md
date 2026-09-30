@@ -169,26 +169,78 @@ Support engineers, IT operators, and internal teams waste hours daily searching 
 
 ---
 
-## 4. Internal & In-Progress Projects (Placeholders for User Input)
+## 4. Internal & Team Projects (Flying Tea Squad / Zone 01 Kisumu)
 
-The following two projects are active team engagements through **Zone 01 Kisumu / Flying Tea Squad**. Detailed descriptions will be inserted once supplied by the user:
+---
 
-### Project 4: Reki
-* **Organization:** Flying-Tea-Squad (`Flying-Tea-Squad/reki`)
-* **Status:** In active development ("in the trenches")
-* **Category:** Internal / Team Project (Description Only)
-* **Placeholder Hook:** *[To be updated: User-provided description]*
-* **Anticipated Focus:** Collaborative architecture, backend engineering, and distributed workflows.
+### Project 4: Project Reki — Graph-Powered Tech Labor Market Intelligence
+* **Category:** Internal / Team Project (Description & Case Study)
+* **Organization & Repo:** Flying-Tea-Squad (`Flying-Tea-Squad/reki`)
+* **Role:** **Technical Lead & Backend / Systems Engineer** (7-person cross-functional team)
+* **Stack:** Python 3.12, Neo4j 5.26 LTS, Go 1.24/1.26, Fiber v3, Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4, OpenAPI 3.1, TanStack Query.
 
-### Project 5: Micro-Influencer App (MIA)
-* **Organization:** Flying-Tea-Squad (`Flying-Tea-Squad/micro_influencer_app`)
-* **Status:** In active development ("in the trenches")
-* **Category:** Internal / Team Project (Description Only)
-* **Known Context from CV:**
-  * Micro-influencer marketing & campaign orchestration platform.
-  * Meta Graph API integration for social account telemetry and engagement verification.
-  * Secure token management and AWS KMS integration for sensitive credential storage.
-* **Placeholder Hook:** *[To be updated: User-provided description]*
+#### A. The Problem
+In emerging tech hubs like Nairobi ("Silicon Savannah"), tech job postings are scattered across dozens of fragmented job boards (BrighterMonday, Fuzu, MyJobMag). Job seekers face severe data friction:
+1. *Extreme Noise:* General boards mix tech roles with drivers, accountants, nurses, and administrative clerks.
+2. *The "Confidential Company" Graph Deduplication Trap:* Kenyan recruitment agencies frequently list jobs as *"Company: Confidential"*. Naive deduplication algorithms merge hundreds of unrelated jobs under a single fake company entity.
+3. *Misleading Remote Opportunities:* Postings advertised as "remote" frequently bury disqualifiers (*"Must have US citizenship"*, *"EU work permit required"*), wasting local engineers' time.
+4. *Data Loss in Scraper Pipelines:* Ingestion pipelines that mutate data in-flight destroy original web provenance, preventing bug fixes without re-crawling.
+
+#### B. The Solution & Architecture
+A contract-driven, graph-powered labor intelligence platform:
+* **Python Normalization Engine (`pipeline/cleaners`):** Authored by Francis ([PR #120](https://github.com/Flying-Tea-Squad/reki/pull/120)). Hierarchical fast-fail tech-role classification rules, Kenyan locality mapping (40+ hubs), negative remote restriction regexes, company name sanitization, and resilient temporal parsing with 135 passing offline unit tests.
+* **Graph Database (Neo4j 5.26 LTS):** Decoupled `(:SourcePosting)-[:DESCRIBES]->(:Job)` model, preserving raw source links and HTML provenance while linking canonical jobs to company and skill nodes.
+* **High-Throughput Go API (Fiber v3):** Subquery pre-expansion pagination in Cypher (`CALL (job) { ... }`), paginating jobs *before* relationship traversal to guarantee deterministic sub-millisecond responses.
+* **Discovery Frontend (Next.js 16 App Router):** Authored by Francis ([PR #135](https://github.com/Flying-Tea-Squad/reki/pull/135)). Two-panel responsive browse layout, multi-facet filter drawer, bidirectional URL query state synchronization, and TanStack Query caching.
+* **Neutral OpenAPI 3.1 Contract:** Authoritative contract driving Go Fiber and TypeScript codegen, catching routing drift prior to deployment.
+
+#### C. Technical Leadership & Critical Reviews
+* **Prevented Crawler Batch Drops (PR #141):** Wrapped detail page parsing in localized exception handling, preventing unhandled DOM parsing errors in Python generators from killing entire crawling batches.
+* **Context Ownership in Go (PR #116):** Remediated startup context cancellation leaks (`defer cancelStartup()`) and isolated single-job parsing failures to protect list views.
+* **Release Management:** Authored the multi-stage PR merge sequence and sprint integration roadmap across Python, Go, and Next.js teams.
+
+#### D. Copywriting Card Summary
+* **Hook (`↳`):** Graph-powered tech labor market discovery platform indexing verified East African opportunities.
+* **Problem:** Fragmented Kenyan job boards filled with non-tech noise, fake remote tags, and broken deduplication.
+* **Role / Solution:** Tech Lead: Built the Python tech-filtering normalization pipeline, Next.js 16 discovery UI, and Neo4j Cypher queries.
+* **Tags:** `Go` · `Python` · `Neo4j` · `Next.js 16` · `OpenAPI` · `Cypher`
+
+---
+
+### Project 5: Micro-Influencer Marketplace (MIA)
+* **Category:** Internal / Team Project (Description & Case Study)
+* **Organization & Repo:** Flying-Tea-Squad (`Flying-Tea-Squad/micro_influencer_app`)
+* **Role:** **Core Backend & Distributed Infrastructure Engineer** (Team of 4)
+* **Stack:** Go 1.24, Fiber v3, PostgreSQL 16 + GORM 2.0 (monthly partitioned `metric_points`), Redis 7 + Asynq, AES-256-GCM + AWS KMS, Safaricom Daraja B2C API, Meta Graph API v21.0, Next.js 15.
+
+#### A. The Problem
+In emerging creator economies like Kenya, influencer marketing is plagued by vanity metric fraud (bought bot followers), payment insecurity (brands fear paying upfront; creators fear non-payment), and tax/disbursement friction with local mobile money (M-Pesa).
+
+#### B. The Solution & Subsystems Built by Francis
+* **Zero-Trust Token Cryptography (`backend/pkg/crypto`):**
+  * Envelope encryption combining **AES-256-GCM** with **AWS KMS** (FIPS 140-3 HSM). Unique 32-byte Data Encryption Keys (DEKs) generated per token with in-memory zeroization upon return.
+  * Designed `LocalKMSClient` mock enabling 100% offline unit/integration test execution without AWS costs or internet connection (~137,000 ops/sec).
+* **Distributed Task Queue & Worker Daemon (`backend/cmd/worker`):**
+  * Standalone Asynq/Redis daemon with **5 weighted priority queues** (`token-refresh: 6`, `payout: 5`, `media-poll: 4`, `verification: 3`, `payout-callback-retry: 2`).
+  * Eliminates task starvation: urgent M-Pesa payouts and token refreshes execute instantly ahead of 20,000+ background media scraping jobs.
+* **Meta Graph API v21.0 Integration (`backend/internal/social`):**
+  * Complete OAuth 2.0 handshake for Instagram/Facebook with HMAC-SHA256 CSRF protection and 60-day long-lived token exchange. Zero-leak DTO architecture.
+* **Contract Lifecycle State Machine (DFA):**
+  * Deterministic 8-state automaton ($\text{invited} \rightarrow \text{accepted} \rightarrow \text{posted} \rightarrow \text{verified} \rightarrow \text{monitoring} \rightarrow \text{completed}$).
+* **Continuous Presence & Breach Monitoring (`backend/internal/monitoring/breach`):**
+  * $N$-consecutive failure threshold logic: requires 3 successive confirmed absent polls over 18 hours before declaring a contract breached, completely protecting creators from transient Meta API downtime.
+* **Creator Authenticity Scoring Engine:**
+  * Mathematical heuristic ($0 \dots 100$) evaluating follower-to-following ratios, comment-to-like distributions, and unnatural engagement spikes to detect purchased bot followers.
+
+#### C. Code Review Leadership
+* **Prevented DB Connection Pool Exhaustion (PR #87):** Caught external Meta API HTTP calls executed inside an open GORM database transaction loop over 50 items. Refactored to fetch-then-write pattern, preserving pool capacity.
+* **Prevented False Contract Breaches (PR #83 & #84):** Remediated naive Meta Graph API Error 100 parsing that mistakenly classified static photo queries as deleted posts.
+
+#### D. Copywriting Card Summary
+* **Hook (`↳`):** Automated micro-influencer escrow marketplace with fraud scoring and instant M-Pesa settlement.
+* **Problem:** Vanity follower fraud, payment insecurity, and slow manual mobile money reconciliation for creators.
+* **Role / Solution:** Core Backend Engineer: Engineered AWS KMS envelope encryption, 5-queue Asynq worker daemon, and contract breach monitor.
+* **Tags:** `Go` · `Fiber v3` · `AWS KMS` · `Redis/Asynq` · `PostgreSQL` · `M-Pesa Daraja`
 
 ---
 
