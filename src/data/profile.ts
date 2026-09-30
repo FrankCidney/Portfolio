@@ -19,7 +19,7 @@ export const profileData: Profile = {
   availabilityStatusText: 'open to engineering roles & projects',
   email: 'franciscidneyawuor@gmail.com',
   phone: '+254702672470',
-  resumeUrl: '/Francis_Cidney_CV.pdf',
+  resumeUrl: '/Francis_Awuor_CV.pdf',
   socialLinks: [
     {
       platform: 'github',
