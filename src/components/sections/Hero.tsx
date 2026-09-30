@@ -31,7 +31,7 @@ export function Hero() {
 
   return (
     <section className="relative pt-24 pb-16 sm:pt-32 sm:pb-24">
-      <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-[1fr_280px] lg:grid-cols-[1fr_320px]">
+      <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-[1fr_290px] lg:grid-cols-[1fr_330px]">
         {/* Left Column: The Pitch */}
         <div className="flex flex-col">
           {/* Availability Beacon */}
@@ -120,23 +120,24 @@ export function Hero() {
         </div>
 
         {/* Right Column: Professional Photo Frame */}
-        <div className="rise-in delay-3 relative justify-self-center md:justify-self-end w-full max-w-[320px] lg:max-w-[350px]">
+        <div className="rise-in delay-3 relative justify-self-center md:justify-self-end w-full max-w-[290px] lg:max-w-[330px]">
           {/* Ambient Glow */}
-          <div className="absolute -inset-2 rounded-3xl bg-accent/5 blur-2xl -z-10 opacity-70 transition-opacity group-hover:opacity-100" />
+          <div className="absolute -inset-2 rounded-3xl bg-accent/10 blur-2xl -z-10 opacity-70 transition-opacity group-hover:opacity-100" />
 
           {/* Frame Card */}
-          <div className="group relative rounded-2xl border border-border bg-surface/50 p-2 shadow-2xl backdrop-blur-sm transition-all duration-300 hover:border-accent/40">
-            <div className="relative overflow-hidden rounded-xl aspect-[4/3] w-full bg-surface">
+          <div className="group relative rounded-2xl border border-border bg-surface/60 p-2 shadow-2xl backdrop-blur-sm transition-all duration-300 hover:border-accent/40 hover:shadow-accent/5">
+            <div className="relative overflow-hidden rounded-xl aspect-[4/5] w-full bg-surface">
               <img
                 src={heroPhoto}
                 alt={profileData.fullName}
-                className="size-full object-cover object-center transition-all duration-500 group-hover:scale-[1.02]"
+                className="size-full object-cover object-[50%_15%] transition-all duration-500 group-hover:scale-[1.03]"
                 loading="eager"
               />
+              <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-border/50 rounded-xl" />
             </div>
 
             {/* Corner Sticker Delight */}
-            <div className="absolute -bottom-3 -right-2 flex items-center gap-1 font-hand text-base text-accent -rotate-3 select-none bg-surface/95 border border-border/90 px-2 py-0.5 rounded-md shadow-md backdrop-blur-sm">
+            <div className="absolute -bottom-3 -right-2 flex items-center gap-1 font-hand text-base text-accent -rotate-3 select-none bg-surface/95 border border-border/90 px-2.5 py-0.5 rounded-md shadow-md backdrop-blur-sm">
               <span>that's me</span>
             </div>
           </div>

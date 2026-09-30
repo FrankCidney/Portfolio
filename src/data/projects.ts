@@ -21,77 +21,8 @@ export const projectsData: Project[] = [
     },
   },
   {
-    id: 'reki',
-    indexNumber: '02',
-    title: 'Project Reki',
-    category: 'team',
-    categoryLabel: 'Team · Flying Tea Squad',
-    hook: 'Tech job board for East Africa with graph-based search.',
-    problem:
-      'Kenyan job boards are full of non-tech roles, fake "remote" tags that require foreign work permits, and agencies listed as "Confidential Company".',
-    solution:
-      'A web platform that crawls East African tech jobs, filters out non-tech noise with Python cleaners, and lets users search jobs, skills, and companies using a Neo4j graph database.',
-    outcome:
-      'Wrote the Python data cleaners with 135 unit tests, tuned Neo4j queries for fast response times in Go Fiber, and built the two-panel browse UI in Next.js.',
-    techStack: ['Go', 'Python', 'Neo4j', 'Next.js', 'Cypher'],
-    status: 'case-study',
-    links: {
-      caseStudy: true,
-    },
-    caseStudy: {
-      roleTitle: 'Backend & Systems Engineer',
-      teamSize: '7 Engineers (Backend, Pipeline, Frontend, DBA, QA)',
-      organization: 'Flying Tea Squad / Zone 01 Kisumu',
-      overview:
-        'Project Reki is a tech job discovery and labor market platform built for East Africa. It separates raw web crawl data from clean graph models so job seekers can search verified tech opportunities.',
-      architecturePoints: [
-        'Python web scraping and cleaning pipeline that stores raw posts in immutable containers.',
-        'Neo4j graph database linking clean job listings to companies and skills without merging unrelated companies.',
-        'Go and Fiber API server running fast Cypher queries with pagination.',
-        'Next.js frontend with split-panel browsing, search, and filter drawers.',
-        'Shared OpenAPI contract to keep Go backend and TypeScript frontend types in sync.',
-      ],
-      subsystems: [
-        {
-          title: 'Python Data Cleaners & Filters',
-          description:
-            'Wrote rules to filter out non-tech postings, resolve 40+ Kenyan towns, catch foreign remote restrictions, and handle missing company names.',
-        },
-        {
-          title: 'Next.js Job Browsing Interface',
-          description:
-            'Built the split-view job search layout with filter drawers, URL query sync, and responsive mobile behavior.',
-        },
-        {
-          title: 'Neo4j Query Pagination',
-          description:
-            'Structured Cypher queries to sort and paginate jobs first before traversing relationships, keeping query responses sub-millisecond.',
-        },
-      ],
-      codeReviewHighlights: [
-        {
-          issue: 'Parser Exception in Batch Crawler',
-          risk: 'Uncaught parsing errors inside a Python generator crashed the entire scraper batch, losing all remaining jobs.',
-          solution:
-            'Added error handling around page parsing with structured logs so the scraper keeps running through the rest of the batch.',
-        },
-        {
-          issue: 'Context Leaks in Go Server',
-          risk: 'Improper startup context cancellations risked resource leaks, and single bad records threw errors across the entire job list.',
-          solution:
-            'Ensured proper context cancellation cleanup and isolated single-item failures so the rest of the list returns normally.',
-        },
-      ],
-      metrics: [
-        '135 offline unit tests running in under 1.2s',
-        'Sub-millisecond database queries',
-        'Zero lint warnings across Python and Go codebases',
-      ],
-    },
-  },
-  {
     id: 'micro-influencer-app',
-    indexNumber: '03',
+    indexNumber: '02',
     title: 'Micro-Influencer Marketplace (MIA)',
     category: 'team',
     categoryLabel: 'Team · Flying Tea Squad',
@@ -155,6 +86,75 @@ export const projectsData: Project[] = [
         '~137,000 encrypts/sec local benchmark',
         '100% tests pass with Go race detector enabled',
         'Zero cloud costs during development using local mocks',
+      ],
+    },
+  },
+  {
+    id: 'reki',
+    indexNumber: '03',
+    title: 'Project Reki',
+    category: 'team',
+    categoryLabel: 'Team · Flying Tea Squad',
+    hook: 'Tech job board for East Africa with graph-based search.',
+    problem:
+      'Kenyan job boards are full of non-tech roles, fake "remote" tags that require foreign work permits, and agencies listed as "Confidential Company".',
+    solution:
+      'A web platform that crawls East African tech jobs, filters out non-tech noise with Python cleaners, and lets users search jobs, skills, and companies using a Neo4j graph database.',
+    outcome:
+      'Wrote the Python data cleaners with 135 unit tests, tuned Neo4j queries for fast response times in Go Fiber, and built the two-panel browse UI in Next.js.',
+    techStack: ['Go', 'Python', 'Neo4j', 'Next.js', 'Cypher'],
+    status: 'case-study',
+    links: {
+      caseStudy: true,
+    },
+    caseStudy: {
+      roleTitle: 'Backend & Systems Engineer',
+      teamSize: '7 Engineers (Backend, Pipeline, Frontend, DBA, QA)',
+      organization: 'Flying Tea Squad / Zone 01 Kisumu',
+      overview:
+        'Project Reki is a tech job discovery and labor market platform built for East Africa. It separates raw web crawl data from clean graph models so job seekers can search verified tech opportunities.',
+      architecturePoints: [
+        'Python web scraping and cleaning pipeline that stores raw posts in immutable containers.',
+        'Neo4j graph database linking clean job listings to companies and skills without merging unrelated companies.',
+        'Go and Fiber API server running fast Cypher queries with pagination.',
+        'Next.js frontend with split-panel browsing, search, and filter drawers.',
+        'Shared OpenAPI contract to keep Go backend and TypeScript frontend types in sync.',
+      ],
+      subsystems: [
+        {
+          title: 'Python Data Cleaners & Filters',
+          description:
+            'Wrote rules to filter out non-tech postings, resolve 40+ Kenyan towns, catch foreign remote restrictions, and handle missing company names.',
+        },
+        {
+          title: 'Next.js Job Browsing Interface',
+          description:
+            'Built the split-view job search layout with filter drawers, URL query sync, and responsive mobile behavior.',
+        },
+        {
+          title: 'Neo4j Query Pagination',
+          description:
+            'Structured Cypher queries to sort and paginate jobs first before traversing relationships, keeping query responses sub-millisecond.',
+        },
+      ],
+      codeReviewHighlights: [
+        {
+          issue: 'Parser Exception in Batch Crawler',
+          risk: 'Uncaught parsing errors inside a Python generator crashed the entire scraper batch, losing all remaining jobs.',
+          solution:
+            'Added error handling around page parsing with structured logs so the scraper keeps running through the rest of the batch.',
+        },
+        {
+          issue: 'Context Leaks in Go Server',
+          risk: 'Improper startup context cancellations risked resource leaks, and single bad records threw errors across the entire job list.',
+          solution:
+            'Ensured proper context cancellation cleanup and isolated single-item failures so the rest of the list returns normally.',
+        },
+      ],
+      metrics: [
+        '135 offline unit tests running in under 1.2s',
+        'Sub-millisecond database queries',
+        'Zero lint warnings across Python and Go codebases',
       ],
     },
   },

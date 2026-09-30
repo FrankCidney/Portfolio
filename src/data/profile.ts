@@ -6,7 +6,7 @@ export const profileData: Profile = {
   nickname: 'frank',
   title: 'Full-Stack & Backend Software Engineer',
   tagline:
-    'Backend software engineer working with Go, PostgreSQL, and distributed systems. I build data pipelines, real-time WebSockets, and clean backend services.',
+    'Backend software engineer working with Go, PostgreSQL, and distributed systems. I build data pipelines, background task queues, and reliable backend services.',
   bioParagraphs: [
     'I build backend services and APIs primarily using Go and PostgreSQL. My work centers on writing clean code, designing relational databases, and handling background tasks and asynchronous pipelines.',
     'Currently a Software Development Apprentice at Zone 01 Kisumu, working on backend systems for team projects like job data pipelines and payment escrow with M-Pesa.',
@@ -43,11 +43,11 @@ export const profileData: Profile = {
   techStackKeywords: [
     'Go (Golang)',
     'PostgreSQL',
-    'Next.js',
-    'React',
+    'Task Queues',
+    'Data Pipelines',
     'Python',
-    'WebSockets',
     'Docker',
     'Redis',
+    'REST APIs',
   ],
 }
