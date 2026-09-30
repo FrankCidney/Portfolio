@@ -162,13 +162,13 @@ portfolio/
 ### Phase 3: Core UI Component Construction
 *Goal: Build the responsive, accessible UI components following the design system.*
 
-- [ ] **Step 3.1: Header Navigation (`Navbar.tsx` & `MobileDock.tsx`)**
+- [x] **Step 3.1: Header Navigation (`Navbar.tsx` & `MobileDock.tsx`)**
   * **Desktop Header:** Fixed top bar (`fixed inset-x-0 top-0 z-50 h-14 border-b border-border/60 bg-background/75 backdrop-blur-md max-w-5xl mx-auto`).
     * Name logo on left.
     * Links (`#work`, `#writing`, `#about`) with `.link-draw`.
     * Direct "Resume" button and "Get in touch" CTA pill.
   * **Mobile Floating Dock:** Bottom floating capsule (`fixed inset-x-0 bottom-4 z-50 flex justify-center md:hidden`).
-- [ ] **Step 3.2: Hero Section (`Hero.tsx`)**
+- [x] **Step 3.2: Hero Section (`Hero.tsx`)**
   * **Left Column:**
     * Live status pill: Pulsing green emerald beacon (`animate-blink`) + "open to engineering roles".
     * Hero Heading: "francis cidney" in `text-5xl sm:text-7xl font-medium tracking-tighter` with staggered `.rise-in` animation.
@@ -182,7 +182,7 @@ portfolio/
     * Ambient glow: `absolute -inset-1 rounded-2xl bg-accent/5 blur-xl -z-10`.
     * Image hover: Subtle micro-scale (`group-hover:scale-[1.02]`) and contrast enhancement.
     * Corner sticker: Optional handwriting accent (*"the human behind the terminal"*).
-- [ ] **Step 3.3: Projects Section (`ProjectsSection.tsx` & `ProjectCard.tsx`)**
+- [x] **Step 3.3: Projects Section (`ProjectsSection.tsx` & `ProjectCard.tsx`)**
   * Segmented filter tabs: `[All]`, `[Personal / Deployed]`, `[Internal / Team]`.
   * Grid: `grid gap-5 sm:grid-cols-2`.
   * Card Anatomy:
@@ -194,18 +194,18 @@ portfolio/
       * `ROLE`: Exactly what Francis engineered.
       * `OUTCOME`: Measurable metric or status.
     * Footer: Tech tags + Action buttons (`Live Demo ↗`, `Source Code ↗`, `View Case Study ↗`).
-- [ ] **Step 3.4: Deep-Dive Case Study Modal / Drawer (`CaseStudyModal.tsx`)**
+- [x] **Step 3.4: Deep-Dive Case Study Modal / Drawer (`CaseStudyModal.tsx`)**
   * When a visitor clicks "View Case Study" on Reki or MIA, a slide-over drawer or modal opens.
   * Displays the full dossier: Executive Summary, System Architecture diagram, Francis's Subsystems, and Code Review Stories (e.g. PR #87 connection pool fix, PR #141 generator crash fix).
-- [ ] **Step 3.5: Writing & Articles Section (`WritingSection.tsx`)**
+- [x] **Step 3.5: Writing & Articles Section (`WritingSection.tsx`)**
   * Eyebrow: `font-mono text-xs tracking-widest uppercase text-faint` ("THOUGHT LEADERSHIP").
   * Heading: "Notes on engineering & architecture".
   * List items with `border-b border-border first:border-t`.
-  * Titles with `.link-draw` and publication date/platform on the right.
-- [ ] **Step 3.6: About Me & Relevant Hobbies (`AboutSection.tsx`)**
+  * Direct links to live Dev.to articles with `.link-draw` and publication metadata on the right.
+- [x] **Step 3.6: About Me & Relevant Hobbies (`AboutSection.tsx`)**
   * Narrative: Engineering philosophy, apprenticeship background at Zone 01 Kisumu, and core technical drivers.
   * Hobbies Grid: Card badges linking personal interests to technical traits (e.g., Open Source Mentorship $\rightarrow$ *Code Review & Communication*; Strategy Games $\rightarrow$ *Systems Modeling*).
-- [ ] **Step 3.7: Contact Section & Site Footer (`ContactSection.tsx`, `Footer.tsx`)**
+- [x] **Step 3.7: Contact Section & Site Footer (`ContactSection.tsx`, `Footer.tsx`)**
   * Pitch: "Have an open role or a distributed system that needs building?"
   * One-click copy email button with visual confirmation ("Copied to clipboard!").
   * Bottom bar with complete social links (LinkedIn, GitHub, Dev.to, X) and direct `Resume (PDF)` download link.
@@ -215,9 +215,9 @@ portfolio/
 ### Phase 4: Assets & Visual Polish
 *Goal: Place real image/resume assets and test responsive polish.*
 
-- [ ] **Step 4.1: Photo & Resume Assets**
+- [x] **Step 4.1: Photo & Resume Assets**
   * Copy `CV.pdf` to `public/Francis_Cidney_CV.pdf`.
-  * Add professional photo to `public/images/profile.jpg` (or SVG avatar placeholder pending user photo file).
+  * Add professional photo from `src/assets/hero.png` into hero component.
 - [ ] **Step 4.2: Micro-Interactions & Accessibility Verification**
   * Verify keyboard navigation (`Tab` navigation with visible outline `focus-visible:ring-1 focus-visible:ring-accent`).
   * Verify responsive layouts across mobile (375px), tablet (768px), and desktop (1280px+).

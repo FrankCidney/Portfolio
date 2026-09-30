@@ -2,8 +2,9 @@ import { profileData } from '@/data'
 import { GithubIcon, LinkedinIcon, DevtoIcon, XIcon } from '@/components/ui/SocialIcons'
 import { ArrowUpRight } from 'lucide-react'
 
+const CURRENT_YEAR = new Date().getFullYear()
+
 export function Footer() {
-  const currentYear = new Date().getFullYear()
 
   return (
     <footer className="border-t border-border/60 py-12 mt-12">
@@ -18,7 +19,7 @@ export function Footer() {
             </span>
           </div>
           <p className="font-mono text-xs text-faint">
-            © {currentYear} Francis Cidney Awuor. Designed for clarity & performance.
+            © {CURRENT_YEAR} Francis Cidney Awuor. Designed for clarity & performance.
           </p>
         </div>
 
