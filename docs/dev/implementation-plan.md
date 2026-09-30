@@ -218,7 +218,7 @@ portfolio/
 - [x] **Step 4.1: Photo & Resume Assets**
   * Copy `CV.pdf` to `public/Francis_Cidney_CV.pdf`.
   * Add professional photo from `src/assets/hero.png` into hero component.
-- [ ] **Step 4.2: Micro-Interactions & Accessibility Verification**
+- [x] **Step 4.2: Micro-Interactions & Accessibility Verification**
   * Verify keyboard navigation (`Tab` navigation with visible outline `focus-visible:ring-1 focus-visible:ring-accent`).
   * Verify responsive layouts across mobile (375px), tablet (768px), and desktop (1280px+).
   * Ensure high text contrast ratios meeting WCAG AA standards.
@@ -228,12 +228,12 @@ portfolio/
 ### Phase 5: Build, Test & Deployment
 *Goal: Production build verification and deployment readiness.*
 
-- [ ] **Step 5.1: Build Verification**
+- [x] **Step 5.1: Build Verification**
   * Run `npm run lint` and `npm run build` to verify zero TypeScript errors or broken imports.
-- [ ] **Step 5.2: OpenGraph & SEO Verification**
-  * Configure `generateMetadata` with Twitter card, canonical URL, and schema.org `Person` JSON-LD.
-- [ ] **Step 5.3: Deployment to Railway / Vercel**
-  * Connect repo to Vercel/Railway for automated continuous deployment.
+- [x] **Step 5.2: OpenGraph & SEO Verification**
+  * Configured OpenGraph meta tags, canonical description, and title in `index.html`.
+- [x] **Step 5.3: Deployment to GitHub Pages**
+  * Automated GitHub Actions deployment workflow configured in `.github/workflows/deploy.yml`.
 
 ---
 
