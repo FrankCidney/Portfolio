@@ -3,11 +3,11 @@ import type { Hobby } from '@/types'
 export const hobbiesData: Hobby[] = [
   {
     id: 'reading',
-    name: 'Technical Reading & Literature',
-    category: 'Continuous Learning',
+    name: 'Reading',
+    category: 'Interests',
     description:
-      'Exploring software engineering books, systems whitepapers, database internals, and architectural blogs to stay grounded in first principles.',
-    engineeringTrait: 'Deep Focus & Fundamentals',
+      'I spend a lot of my free time reading. My reading spans philosophy, science, coding, biographies, and business.',
+    engineeringTrait: 'Broad Perspective & Fundamentals',
     iconName: 'BookOpen',
   },
 ]

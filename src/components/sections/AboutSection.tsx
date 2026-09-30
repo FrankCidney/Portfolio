@@ -60,19 +60,19 @@ export function AboutSection() {
             </div>
 
             <h3 className="text-base font-medium text-foreground">
-              Technical Reading & Literature
+              Reading
             </h3>
 
             <p className="mt-2 text-xs sm:text-sm leading-relaxed text-muted font-normal">
-              When I'm not writing code, you'll usually find me reading. I spend time exploring database storage internals (B-trees, LSM trees, WALs), systems engineering blogs, distributed computing whitepapers, and software architecture books to sharpen my engineering intuition.
+              When I'm not writing code, I spend a lot of my free time reading. What I read mostly covers philosophy, science, coding, biographies, and business.
             </p>
 
             <div className="mt-5 border-t border-border/60 pt-4">
               <span className="font-mono text-[10px] uppercase tracking-wider text-faint block mb-2">
-                Favorite Topics
+                What I Read
               </span>
               <div className="flex flex-wrap gap-1.5">
-                {['Database Internals', 'Go Concurrency Patterns', 'Distributed Consensus', 'System Design'].map((topic) => (
+                {['Philosophy', 'Science', 'Coding', 'Biographies', 'Business'].map((topic) => (
                   <span
                     key={topic}
                     className="font-mono text-[11px] text-faint bg-background/50 border border-border/60 px-2 py-0.5 rounded"

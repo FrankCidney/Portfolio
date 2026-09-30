@@ -20,7 +20,6 @@ export function ProjectsSection() {
       all: projectsData.length,
       personal: projectsData.filter((p) => p.category === 'personal').length,
       team: projectsData.filter((p) => p.category === 'team').length,
-      organization: projectsData.filter((p) => p.category === 'organization').length,
     }
   }, [])
 
@@ -36,15 +35,15 @@ export function ProjectsSection() {
             Featured Systems & Projects
           </h2>
           <p className="mt-2 text-sm text-muted max-w-xl">
-            A selection of personal tools, collaborative team systems, and organization platforms built with Go, PostgreSQL, and modern frontend frameworks.
+            A selection of personal tools and collaborative team systems built with Go, PostgreSQL, Python, and modern web tools.
           </p>
         </div>
 
-        {/* Filter Tabs */}
-        <div className="flex flex-wrap items-center gap-1.5 rounded-full border border-border bg-surface/50 p-1 self-start sm:self-auto">
+        {/* Clean 3-Tab Filter (All, Personal, Team) */}
+        <div className="inline-flex items-center gap-1 rounded-full border border-border bg-surface/60 p-1 self-start sm:self-auto shrink-0">
           <button
             onClick={() => setActiveFilter('all')}
-            className={`rounded-full px-3 py-1 text-xs font-mono transition-colors cursor-pointer ${
+            className={`rounded-full px-3.5 py-1 text-xs font-mono transition-colors cursor-pointer ${
               activeFilter === 'all'
                 ? 'bg-foreground text-background font-medium'
                 : 'text-muted hover:text-foreground'
@@ -55,7 +54,7 @@ export function ProjectsSection() {
 
           <button
             onClick={() => setActiveFilter('personal')}
-            className={`rounded-full px-3 py-1 text-xs font-mono transition-colors cursor-pointer ${
+            className={`rounded-full px-3.5 py-1 text-xs font-mono transition-colors cursor-pointer ${
               activeFilter === 'personal'
                 ? 'bg-foreground text-background font-medium'
                 : 'text-muted hover:text-foreground'
@@ -66,24 +65,13 @@ export function ProjectsSection() {
 
           <button
             onClick={() => setActiveFilter('team')}
-            className={`rounded-full px-3 py-1 text-xs font-mono transition-colors cursor-pointer ${
+            className={`rounded-full px-3.5 py-1 text-xs font-mono transition-colors cursor-pointer ${
               activeFilter === 'team'
                 ? 'bg-foreground text-background font-medium'
                 : 'text-muted hover:text-foreground'
             }`}
           >
             team ({counts.team})
-          </button>
-
-          <button
-            onClick={() => setActiveFilter('organization')}
-            className={`rounded-full px-3 py-1 text-xs font-mono transition-colors cursor-pointer ${
-              activeFilter === 'organization'
-                ? 'bg-foreground text-background font-medium'
-                : 'text-muted hover:text-foreground'
-            }`}
-          >
-            organization ({counts.organization})
           </button>
         </div>
       </div>

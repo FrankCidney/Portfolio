@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { profileData } from '@/data'
 import { HandArrow } from '@/components/ui/HandArrow'
 import { ArrowDown, Mail } from 'lucide-react'
-import heroPhoto from '@/assets/hero.png'
+import heroPhoto from '@/assets/hero.jpg'
 
 function useEatTime() {
   const [timeStr, setTimeStr] = useState<string>('')
@@ -120,23 +120,23 @@ export function Hero() {
         </div>
 
         {/* Right Column: Professional Photo Frame */}
-        <div className="rise-in delay-3 relative justify-self-center md:justify-self-end w-full max-w-[280px] lg:max-w-[320px]">
+        <div className="rise-in delay-3 relative justify-self-center md:justify-self-end w-full max-w-[320px] lg:max-w-[350px]">
           {/* Ambient Glow */}
           <div className="absolute -inset-2 rounded-3xl bg-accent/5 blur-2xl -z-10 opacity-70 transition-opacity group-hover:opacity-100" />
 
           {/* Frame Card */}
           <div className="group relative rounded-2xl border border-border bg-surface/50 p-2 shadow-2xl backdrop-blur-sm transition-all duration-300 hover:border-accent/40">
-            <div className="relative overflow-hidden rounded-xl aspect-[4/5] w-full bg-surface">
+            <div className="relative overflow-hidden rounded-xl aspect-[4/3] w-full bg-surface">
               <img
                 src={heroPhoto}
                 alt={profileData.fullName}
-                className="size-full object-cover object-top filter grayscale-[20%] contrast-[1.04] transition-all duration-500 group-hover:grayscale-0 group-hover:scale-[1.02]"
+                className="size-full object-cover object-center transition-all duration-500 group-hover:scale-[1.02]"
                 loading="eager"
               />
             </div>
 
             {/* Corner Sticker Delight */}
-            <div className="absolute -bottom-3 -right-2 flex items-center gap-1 font-hand text-base text-accent -rotate-3 select-none bg-surface/90 border border-border/80 px-2 py-0.5 rounded-md shadow-md backdrop-blur-sm">
+            <div className="absolute -bottom-3 -right-2 flex items-center gap-1 font-hand text-base text-accent -rotate-3 select-none bg-surface/95 border border-border/90 px-2 py-0.5 rounded-md shadow-md backdrop-blur-sm">
               <span>that's me</span>
             </div>
           </div>

@@ -41,14 +41,13 @@ export function LinkedinIcon({ className = 'size-4' }: IconProps) {
 
 export function DevtoIcon({ className = 'size-4' }: IconProps) {
   return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="currentColor"
+    <span
+      className={`inline-flex items-center justify-center font-mono font-black tracking-tighter select-none ${className}`}
+      style={{ fontSize: '10px', letterSpacing: '-0.5px' }}
       aria-hidden="true"
     >
-      <path d="M7.42 10.05c-.18-.12-.46-.19-.84-.19H5.2v4.28h1.38c.38 0 .66-.07.84-.19.18-.12.28-.35.28-.7v-2.5c0-.35-.1-.58-.28-.7zm-3.4-1.92h2.56c.86 0 1.5.21 1.94.63.43.42.65 1.04.65 1.86v2.76c0 .82-.21 1.44-.65 1.86-.43.42-1.08.63-1.94.63H4.02V8.13zm6.67 7.74V8.13h4.63v1.82h-2.73v1.17h2.46v1.75h-2.46v1.17h2.73v1.83h-4.63zm9.05-7.74l-1.63 7.74h-1.95l-1.63-7.74h1.96l.72 4.19.72-4.19h1.81zM2 3h20a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" />
-    </svg>
+      DEV
+    </span>
   )
 }
 
