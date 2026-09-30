@@ -98,15 +98,15 @@ portfolio/
 ### Phase 1: Environment & Project Scaffolding
 *Goal: Initialize the React + Vite project, install dependencies, and configure the custom dark theme system.*
 
-- [ ] **Step 1.1: Project Initialization**
+- [x] **Step 1.1: Project Initialization**
   * Bootstrap Vite with React and TypeScript.
-- [ ] **Step 1.2: Dependencies Setup**
+- [x] **Step 1.2: Dependencies Setup**
   * Install Tailwind CSS, PostCSS, Autoprefixer, Lucide React, and utility packages:
     ```bash
     npm install -D tailwindcss postcss autoprefixer
     npm install lucide-react clsx tailwind-merge
     ```
-- [ ] **Step 1.3: Design Tokens & CSS Configuration**
+- [x] **Step 1.3: Design Tokens & CSS Configuration**
   * In `src/index.css`, configure Tailwind directives and strict dark theme CSS variables matching [`docs/dev/design-spec.md`](./design-spec.md):
     ```css
     :root {
@@ -127,7 +127,7 @@ portfolio/
     * `@keyframes blink` (live availability indicator).
     * `@keyframes rise-in` (staggered entrance transition).
     * `perspective: 800px` for 3D card tilt.
-- [ ] **Step 1.4: Typography & HTML Entry**
+- [x] **Step 1.4: Typography & HTML Entry**
   * In `index.html`, load Google Fonts (`Geist`, `Geist Mono`, `Caveat`).
   * Ensure `<html class="dark h-full">` and `<body class="bg-background text-foreground antialiased selection:bg-accent/20">`.
   * Configure `vite.config.ts` with path alias `@/*` -> `./src/*`.
