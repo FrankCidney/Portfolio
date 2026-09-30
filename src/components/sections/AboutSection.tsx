@@ -17,7 +17,7 @@ export function AboutSection() {
         {/* Left Column: Narrative Story & Experience Context */}
         <div className="lg:col-span-7 space-y-5 text-sm sm:text-[15px] leading-relaxed text-muted">
           <p>
-            I am a software engineer based in Kenya focused on backend systems and distributed architectures, primarily working with <span className="text-foreground font-medium">Go</span> and <span className="text-foreground font-medium">PostgreSQL</span>.
+            I am a software engineer based in Kenya focused on backend services, automation tools, and web applications, primarily working with <span className="text-foreground font-medium">Go</span> and <span className="text-foreground font-medium">PostgreSQL</span>.
           </p>
 
           <p>

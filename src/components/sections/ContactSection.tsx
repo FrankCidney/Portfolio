@@ -29,11 +29,11 @@ export function ContactSection() {
           </span>
 
           <h2 className="mt-2 text-2xl sm:text-3xl font-medium tracking-tight text-foreground">
-            Have an open role or a system that needs building?
+            Have an open role or a project in mind?
           </h2>
 
           <p className="mt-3 text-sm sm:text-base leading-relaxed text-muted font-normal">
-            I am currently open to full-time engineering opportunities and high-impact distributed systems work. Whether you want to discuss backend architecture, Go pipelines, or explore a role, my inbox is open.
+            I am open to full-time engineering roles, contracts, and collaboration. Whether you need backend systems built, automation tools, or frontend work, my inbox is open.
           </p>
 
           {/* Interactive Contact Actions */}
