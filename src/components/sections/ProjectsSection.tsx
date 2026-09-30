@@ -19,7 +19,8 @@ export function ProjectsSection() {
     return {
       all: projectsData.length,
       personal: projectsData.filter((p) => p.category === 'personal').length,
-      internal: projectsData.filter((p) => p.category === 'internal').length,
+      team: projectsData.filter((p) => p.category === 'team').length,
+      organization: projectsData.filter((p) => p.category === 'organization').length,
     }
   }, [])
 
@@ -29,18 +30,18 @@ export function ProjectsSection() {
       <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-10">
         <div>
           <span className="font-mono text-xs tracking-widest uppercase text-faint">
-            Proof of Shipped Work
+            Engineering Projects
           </span>
           <h2 className="mt-2 text-2xl sm:text-3xl font-medium tracking-tight text-foreground">
-            Featured Systems & Architectures
+            Featured Systems & Projects
           </h2>
           <p className="mt-2 text-sm text-muted max-w-xl">
-            A selection of production-grade services, distributed pipelines, and team architectures built with Go, PostgreSQL, and modern frontend tools.
+            A selection of personal tools, collaborative team systems, and organization platforms built with Go, PostgreSQL, and modern frontend frameworks.
           </p>
         </div>
 
         {/* Filter Tabs */}
-        <div className="flex items-center gap-1.5 rounded-full border border-border bg-surface/50 p-1 self-start sm:self-auto">
+        <div className="flex flex-wrap items-center gap-1.5 rounded-full border border-border bg-surface/50 p-1 self-start sm:self-auto">
           <button
             onClick={() => setActiveFilter('all')}
             className={`rounded-full px-3 py-1 text-xs font-mono transition-colors cursor-pointer ${
@@ -60,18 +61,29 @@ export function ProjectsSection() {
                 : 'text-muted hover:text-foreground'
             }`}
           >
-            deployed ({counts.personal})
+            personal ({counts.personal})
           </button>
 
           <button
-            onClick={() => setActiveFilter('internal')}
+            onClick={() => setActiveFilter('team')}
             className={`rounded-full px-3 py-1 text-xs font-mono transition-colors cursor-pointer ${
-              activeFilter === 'internal'
+              activeFilter === 'team'
                 ? 'bg-foreground text-background font-medium'
                 : 'text-muted hover:text-foreground'
             }`}
           >
-            team ({counts.internal})
+            team ({counts.team})
+          </button>
+
+          <button
+            onClick={() => setActiveFilter('organization')}
+            className={`rounded-full px-3 py-1 text-xs font-mono transition-colors cursor-pointer ${
+              activeFilter === 'organization'
+                ? 'bg-foreground text-background font-medium'
+                : 'text-muted hover:text-foreground'
+            }`}
+          >
+            organization ({counts.organization})
           </button>
         </div>
       </div>

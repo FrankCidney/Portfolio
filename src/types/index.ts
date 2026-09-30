@@ -1,6 +1,6 @@
 // --- Domain TypeScript Interfaces ---
 
-export type ProjectCategory = 'personal' | 'internal'
+export type ProjectCategory = 'personal' | 'team' | 'organization'
 export type ProjectDeploymentStatus = 'deployed' | 'in-progress' | 'case-study'
 
 export interface ProjectLinks {

@@ -11,34 +11,32 @@ export const projectsData: Project[] = [
     problem:
       'Manual job hunting across fragmented boards results in duplicate listings, stale openings, and poor signal-to-noise ratio.',
     solution:
-      'Engineered a self-hosted Go service featuring explicit SQL migrations, an in-process 24h scheduler, algorithmic profile scoring, and automated Resend API email digests.',
+      'A self-hosted automation service that aggregates job postings from multiple boards, normalizes inconsistent payloads into a clean schema, scores roles against user preferences, and sends a daily email digest.',
     outcome:
-      'Single-binary reliability with zero external broker dependencies, hash-based deduplication, sub-second query console, and scheduled automated inbox digests.',
-    techStack: ['Go', 'PostgreSQL', 'Resend API', 'Docker', 'Railway'],
-    status: 'deployed',
+      'Engineered in Go as a standalone binary with explicit PostgreSQL SQL migrations, an in-process 24h cron scheduler, SHA-based content deduplication, and automated email delivery via the Resend API.',
+    techStack: ['Go', 'PostgreSQL', 'Resend API', 'Docker'],
+    status: 'in-progress',
     links: {
       github: 'https://github.com/FrankCidney/opportunity-radar',
-      live: 'https://github.com/FrankCidney/opportunity-radar',
     },
   },
   {
     id: 'social-network',
     indexNumber: '02',
     title: 'Social Network Platform',
-    category: 'personal',
-    categoryLabel: 'Personal Project',
+    category: 'team',
+    categoryLabel: 'Team Project',
     hook: 'Real-time social platform with sub-millisecond WebSocket chat and granular privacy controls.',
     problem:
       'Building responsive real-time community platforms without heavy third-party SaaS dependencies or polling latency.',
     solution:
-      'Architected a concurrent Go backend with goroutine-backed WebSocket client hubs, relational follower/group permission states, and a Next.js App Router frontend.',
+      'A full-stack social networking application featuring instant one-on-one and group messaging, live activity feeds, notification broadcasts, and granular follower/group privacy states.',
     outcome:
-      'Sub-millisecond local messaging, bi-directional live notifications, public/private profile states, and multi-stage Docker Compose containerization.',
+      'Architected a concurrent Go WebSocket server with mutex-protected client hubs, relational follower approval state machines, session-based cookie authentication, and a Next.js App Router frontend.',
     techStack: ['Go', 'Next.js', 'TypeScript', 'WebSockets', 'SQLite', 'Docker'],
-    status: 'deployed',
+    status: 'in-progress',
     links: {
       github: 'https://github.com/FrankCidney/social-network',
-      live: 'https://github.com/FrankCidney/social-network',
     },
   },
   {
@@ -51,37 +49,35 @@ export const projectsData: Project[] = [
     problem:
       'Internal support and IT teams waste hours searching unindexed runbooks and risk LLM hallucinations from ungrounded tools.',
     solution:
-      'Engineered an enterprise RAG assistant with multi-format parsing (.pdf, .docx, .txt), FAISS vector indexing, Gemini 3.6 Flash grounded synthesis, and two-tier caching.',
+      'An enterprise Retrieval-Augmented Generation (RAG) assistant that ingests internal documentation (.pdf, .docx, .txt), indexes content into vector space, and generates verified answers citing source documents.',
     outcome:
-      '100% retrieval precision on test suites, 3.18s median query latency, 100% duplicate file detection (SHA-256), and persistent query cache with CSV audit export.',
+      'Built with FastAPI and Google Gemini, featuring FAISS vector retrieval and a two-tier caching system (SHA-256 document hashing + SQLite query vector caching) yielding 3.18s median response time with 100% precision on test queries.',
     techStack: ['Python', 'FastAPI', 'FAISS', 'Google Gemini', 'React', 'RAG'],
-    status: 'deployed',
+    status: 'in-progress',
     links: {
       github: 'https://github.com/FrankCidney/guidely',
-      live: 'https://github.com/FrankCidney/guidely',
     },
   },
   {
     id: 'reki',
     indexNumber: '04',
     title: 'Project Reki',
-    category: 'internal',
-    categoryLabel: 'Internal · Flying Tea Squad',
+    category: 'organization',
+    categoryLabel: 'Organization · Flying Tea Squad',
     hook: 'Graph-powered tech labor market discovery platform indexing verified East African opportunities.',
     problem:
-      'Fragmented Kenyan job boards filled with non-tech noise, fake remote tags, and the "Confidential Company" graph deduplication trap.',
+      'Fragmented Kenyan job boards filled with non-tech noise, misleading foreign remote tags, and the "Confidential Company" graph deduplication trap.',
     solution:
-      'Technical Lead: Authored the Python normalization pipeline (PR #120), Next.js 16 discovery UI (PR #135), and pre-expansion pagination Cypher queries in Neo4j.',
+      'A contract-driven labor market discovery platform that crawls tech jobs across East Africa, cleans and classifies roles into canonical entities, and provides faceted search over skill and company graphs.',
     outcome:
-      '135 offline unit tests (<1.2s execution), sub-millisecond graph queries, and automated OpenAPI 3.1 client/server contract codegen.',
+      'Authored the Python normalization pipeline (PR #120) with 135 passing offline unit tests (<1.2s), wrote pre-expansion pagination Cypher queries in Neo4j for Go Fiber v3, and built the two-panel Next.js 16 discovery UI (PR #135).',
     techStack: ['Go', 'Python', 'Neo4j', 'Next.js 16', 'OpenAPI', 'Cypher'],
     status: 'case-study',
     links: {
-      github: 'https://github.com/Flying-Tea-Squad/reki',
       caseStudy: true,
     },
     caseStudy: {
-      roleTitle: 'Technical Lead & Backend / Systems Engineer',
+      roleTitle: 'Backend & Systems Engineer',
       teamSize: '7 Engineers (Backend, Pipeline, Frontend, DBA, QA)',
       organization: 'Flying Tea Squad / Zone 01 Kisumu',
       overview:
@@ -135,23 +131,22 @@ export const projectsData: Project[] = [
     id: 'micro-influencer-app',
     indexNumber: '05',
     title: 'Micro-Influencer Marketplace (MIA)',
-    category: 'internal',
-    categoryLabel: 'Internal · Flying Tea Squad',
+    category: 'organization',
+    categoryLabel: 'Organization · Flying Tea Squad',
     hook: 'Automated micro-influencer escrow marketplace with fraud scoring and instant M-Pesa settlement.',
     problem:
       'Vanity follower fraud, payment insecurity, and slow manual mobile money reconciliation for creators and SMBs.',
     solution:
-      'Core Backend Engineer: Engineered AWS KMS envelope encryption, a 5-queue Asynq/Redis priority worker daemon, and contract presence breach monitoring.',
+      'An automated marketplace enabling African SMBs to book verified creators, escrow campaign funds, verify Instagram post deliverables via Meta APIs, and disburse instant M-Pesa payouts.',
     outcome:
-      '~137k encrypts/sec benchmarks, 100% offline dev mock (LocalKMSClient), eliminated task starvation, and prevented DB connection pool exhaustion (PR #87).',
+      'Engineered zero-trust AES-256-GCM envelope encryption backed by AWS KMS (~137k ops/sec), a 5-queue Asynq/Redis priority worker daemon preventing task starvation, and contract breach monitoring with N-failure thresholds.',
     techStack: ['Go', 'Fiber v3', 'AWS KMS', 'Redis / Asynq', 'PostgreSQL', 'M-Pesa Daraja'],
     status: 'case-study',
     links: {
-      github: 'https://github.com/Flying-Tea-Squad/micro_influencer_app',
       caseStudy: true,
     },
     caseStudy: {
-      roleTitle: 'Core Backend & Distributed Infrastructure Engineer',
+      roleTitle: 'Core Backend Engineer',
       teamSize: '4 Engineers (2 Backend, 2 Frontend)',
       organization: 'Flying Tea Squad / Zone 01 Kisumu',
       overview:
