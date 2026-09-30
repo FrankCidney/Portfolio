@@ -27,12 +27,12 @@ The objective is to engineer a portfolio that passes the **15-second recruiter/e
 
 | Layer | Selected Tool | Rationale |
 | :--- | :--- | :--- |
-| **Framework** | **Next.js 15+ (App Router, React 19, TypeScript)** | Francis is already proficient in Next.js; provides instant static generation (SSG), optimal SEO, Server Components, and zero runtime overhead. |
-| **Styling** | **Tailwind CSS 3/4** | Utility-first CSS configured with custom dark mode tokens (`#0a0a0a`), bespoke animations (`link-draw`, `rise-in`, `blink`), and zero hydration mismatch. |
+| **Framework & Bundler** | **React + Vite (TypeScript, SPA)** | Pure client-side static application. Lightning-fast HMR, sub-second builds, zero server complexity, and clean modular React components. |
+| **Styling** | **Tailwind CSS** | Utility-first CSS configured with custom dark mode tokens (`#0a0a0a`), bespoke animations (`link-draw`, `rise-in`, `blink`), and zero runtime overhead. |
 | **Icons** | **Lucide React** | Clean, minimalist, tree-shakeable SVG icons for GitHub, LinkedIn, external links, and tech badges. |
-| **Fonts** | **Next.js Google Fonts** (`Geist`, `Geist_Mono`, `Caveat`) | Eliminates external render-blocking font requests: Geist Sans for headings/body, Geist Mono for code/metadata, and Caveat for conversational handwriting notes. |
+| **Fonts** | **Web Fonts** (`Geist`, `Geist Mono`, `Caveat`) | Clean typography pairing: Geist Sans for headings/body, Geist Mono for code/metadata, and Caveat for conversational handwriting notes. |
 | **Content Architecture** | **Type-Safe In-Repo Data (`src/data/*.ts`)** | Structured TypeScript data models (`projects.ts`, `profile.ts`, `articles.ts`, `hobbies.ts`). Fast, version-controlled, zero external CMS dependency. |
-| **Deployment Target** | **Vercel / Railway** | Zero-configuration continuous deployment linked to the GitHub repository. |
+| **Deployment Target** | **Vercel / Railway / GitHub Pages** | Zero-configuration continuous deployment serving pre-built static assets from the `dist/` directory. |
 
 ---
 
@@ -45,6 +45,7 @@ portfolio/
 │       ├── design-spec.md                     # Design tokens, CSS, animations
 │       ├── project-and-resume-context.md      # Project matrix & CV details
 │       ├── implementation-plan.md             # This master execution roadmap
+│       ├── AGENTS.md                          # AI agent guidelines & workflow
 │       ├── PORTFOLIO_BREAKDOWN_MICRO_INFLUENCER.md
 │       └── PORTFOLIO_BREAKDOWN_REKI.md
 ├── public/
@@ -53,11 +54,6 @@ portfolio/
 │   │   └── og-image.png                       # Social preview card
 │   └── Francis_Cidney_CV.pdf                  # Direct resume PDF
 ├── src/
-│   ├── app/
-│   │   ├── layout.tsx                         # Root layout with fonts & metadata
-│   │   ├── page.tsx                           # Single-page master portfolio layout
-│   │   ├── globals.css                        # Design tokens, link-draw, animations
-│   │   └── icon.svg                           # Favicon
 │   ├── components/
 │   │   ├── layout/
 │   │   │   ├── Navbar.tsx                     # Fixed desktop blur header
@@ -80,12 +76,17 @@ portfolio/
 │   │   ├── projects.ts                        # 5 projects with full schema
 │   │   ├── articles.ts                        # Technical writing list
 │   │   └── hobbies.ts                         # Relevant hobbies & engineering traits
-│   └── types/
-│       └── index.ts                           # Project, Article, Profile TypeScript types
-├── next.config.ts
-├── tailwind.config.ts
-├── tsconfig.json
-└── package.json
+│   ├── types/
+│   │   └── index.ts                           # Project, Article, Profile TypeScript types
+│   ├── App.tsx                                # Root application component
+│   ├── index.css                              # Design tokens, link-draw, animations
+│   └── main.tsx                               # React entry point
+├── index.html                                 # HTML entry with font links & metadata
+├── vite.config.ts                             # Vite configuration with @ path alias
+├── tailwind.config.ts                         # Tailwind theme & color tokens
+├── postcss.config.js                          # PostCSS config
+├── tsconfig.json                              # TypeScript compiler configuration
+└── package.json                               # Dependencies & build scripts
 ```
 
 ---
@@ -95,20 +96,18 @@ portfolio/
 ---
 
 ### Phase 1: Environment & Project Scaffolding
-*Goal: Initialize the Next.js project, install dependencies, and configure the custom dark theme system.*
+*Goal: Initialize the React + Vite project, install dependencies, and configure the custom dark theme system.*
 
 - [ ] **Step 1.1: Project Initialization**
-  * Scaffold Next.js in the repository:
-    ```bash
-    npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias "@/*" --use-npm
-    ```
+  * Bootstrap Vite with React and TypeScript.
 - [ ] **Step 1.2: Dependencies Setup**
-  * Install icon and UI utility packages:
+  * Install Tailwind CSS, PostCSS, Autoprefixer, Lucide React, and utility packages:
     ```bash
+    npm install -D tailwindcss postcss autoprefixer
     npm install lucide-react clsx tailwind-merge
     ```
 - [ ] **Step 1.3: Design Tokens & CSS Configuration**
-  * In `src/app/globals.css`, configure the strict dark theme CSS variables matching [`docs/dev/design-spec.md`](./design-spec.md):
+  * In `src/index.css`, configure Tailwind directives and strict dark theme CSS variables matching [`docs/dev/design-spec.md`](./design-spec.md):
     ```css
     :root {
       --background: #0a0a0a;
@@ -128,9 +127,10 @@ portfolio/
     * `@keyframes blink` (live availability indicator).
     * `@keyframes rise-in` (staggered entrance transition).
     * `perspective: 800px` for 3D card tilt.
-- [ ] **Step 1.4: Typography & Root Layout**
-  * Configure `Geist`, `Geist_Mono`, and `Caveat` via `next/font/google` in `src/app/layout.tsx`.
+- [ ] **Step 1.4: Typography & HTML Entry**
+  * In `index.html`, load Google Fonts (`Geist`, `Geist Mono`, `Caveat`).
   * Ensure `<html class="dark h-full">` and `<body class="bg-background text-foreground antialiased selection:bg-accent/20">`.
+  * Configure `vite.config.ts` with path alias `@/*` -> `./src/*`.
 
 ---
 

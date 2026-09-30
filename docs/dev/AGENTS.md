@@ -14,7 +14,7 @@
 * **Architecture:**  
   **Pure Frontend Static Web Application** (No backend server or database required).
 * **Tech Stack & Tooling:**
-  * **Framework:** Next.js (App Router, React 19/18, TypeScript).
+  * **Framework / Tooling:** React + Vite (TypeScript, Tailwind CSS, SPA).
   * **Styling:** Tailwind CSS configured with custom dark mode design tokens.
   * **Icons:** Lucide React (clean, tree-shakeable SVG icons).
   * **Typography:** Geist Sans (body/headings), Geist Mono (metadata/code/labels), Caveat (conversational handwriting notes).
